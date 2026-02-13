@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Portfolio - BIDA Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .skills-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        .filter-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .filter-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        
+        .filter-btn:hover {
+            background: #5568d3;
+        }
+        
+        .filter-btn.active {
+            background: #764ba2;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tbody tr {
+            transition: background 0.2s;
+        }
+        
+        tbody tr:hover {
+            background: #f8f9ff;
+        }
+        
+        .file-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            display: inline-block;
+            padding: 5px 10px;
+            background: #f0f0ff;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .file-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 1em;
+        }
+        
+        .skills-cell {
+            font-size: 0.85em;
+            color: #555;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background: #e8eaf6;
+            color: #5568d3;
+            padding: 3px 8px;
+            margin: 2px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        .notes-cell {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 8px;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+        
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .github-link:hover {
+            background: #0366d6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.85em;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .stat-box {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Data Analytics Portfolio</h1>
+            <p class="subtitle">Business Intelligence Data Analyst (BIDA) | Python, Machine Learning, Statistical Analysis</p>
+            <div>
+                <span class="skills-badge">Python</span>
+                <span class="skills-badge">Pandas</span>
+                <span class="skills-badge">Machine Learning</span>
+                <span class="skills-badge">Statistical Analysis</span>
+                <span class="skills-badge">API Integration</span>
+                <span class="skills-badge">Data Visualization</span>
+                <span class="skills-badge">SQL</span>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">28+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Skills</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <button class="filter-btn active" onclick="filterTable('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterTable('Machine Learning')">Machine Learning</button>
+            <button class="filter-btn" onclick="filterTable('Statistical')">Statistical Analysis</button>
+            <button class="filter-btn" onclick="filterTable('API')">API & Integration</button>
+            <button class="filter-btn" onclick="filterTable('Web Scraping')">Web Scraping</button>
+            <button class="filter-btn" onclick="filterTable('Data Quality')">Data Quality</button>
+        </div>
+        
+        <table id="projectTable">
+            <thead>
+                <tr>
+                    <th style="width: 15%">File Name</th>
+                    <th style="width: 20%">Project Title</th>
+                    <th style="width: 25%">Business Purpose</th>
+                    <th style="width: 20%">Skills Demonstrated</th>
+                    <th style="width: 20%">Detailed Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-category="Machine Learning">
+                    <td><a href="K-Mean Clustering.py" class="file-link" target="_blank">K-Mean Clustering.py</a></td>
+                    <td class="project-title">Customer Segmentation Analysis</td>
+                    <td>Identifies distinct customer groups based on purchase behavior to enable targeted marketing strategies</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">K-Means Clustering</span>
+                        <span class="skill-tag">Customer Analytics</span>
+                    </td>
+                    <td class="notes-cell">Uses wine customer offer data to perform unsupervised learning clustering. Applies the elbow method to determine optimal number of customer segments. Business value: Enables personalized marketing campaigns.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="Linear regression.py" class="file-link" target="_blank">Linear regression.py</a></td>
+                    <td class="project-title">Revenue-Distance Relationship Model</td>
+                    <td>Analyzes how customer distance from physical stores impacts online revenue</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Predictive Analytics</span>
+                        <span class="skill-tag">Linear Regression</span>
+                        <span class="skill-tag">Statistical Modeling</span>
+                    </td>
+                    <td class="notes-cell">Builds a linear model showing the relationship between online revenue (YTD) and distance from nearest store. Business value: Informs store location strategy and online/offline channel allocation.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="NHL API teams.py" class="file-link" target="_blank">NHL API teams.py</a></td>
+                    <td class="project-title">Live Sports Data Integration</td>
+                    <td>Demonstrates ability to pull real-time data from external APIs for analysis</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Data Extraction</span>
+                    </td>
+                    <td class="notes-cell">Connects to NHL's official API to retrieve current team information. Shows capability to integrate external data sources into business intelligence workflows. Foundation for automated data pipelines.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Chart values.py" class="file-link" target="_blank">Chart values.py</a></td>
+                    <td class="project-title">E-Commerce Correlation Analysis</td>
+                    <td>Examines relationships between customer website behavior and purchase outcomes</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Correlation Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">EDA</span>
+                    </td>
+                    <td class="notes-cell">Analyzes key e-commerce metrics: time on site, pages visited, items in cart, and basket value. Creates visual pairplots to identify patterns. Business value: Identifies which website behaviors lead to higher sales.</td>
+                </tr>
+                
+                <tr data-category="Data Quality">
+                    <td><a href="ID outliers.py" class="file-link" target="_blank">ID outliers.py</a></td>
+                    <td class="project-title">Automated Data Quality Detection</td>
+                    <td>Identifies unusual data points that could indicate issues or opportunities</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Quality</span>
+                        <span class="skill-tag">Outlier Detection</span>
+                        <span class="skill-tag">Z-Score & IQR</span>
+                    </td>
+                    <td class="notes-cell">Uses two statistical methods (Z-Score and IQR) to flag outliers across all numeric fields. Outputs results to separate Excel sheets for review. Business value: Catches data errors, fraud, or exceptional cases.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Unique User ID.py" class="file-link" target="_blank">Unique User ID.py</a></td>
+                    <td class="project-title">User Count Analysis</td>
+                    <td>Calculates number of distinct users in dataset for audience sizing</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Aggregation</span>
+                        <span class="skill-tag">User Analytics</span>
+                    </td>
+                    <td class="notes-cell">Quick analysis to count unique users in a dataset. Foundation skill for calculating market size, active users, or customer base. Answers fundamental 'how many customers' questions.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="Dump JSON.py" class="file-link" target="_blank">Dump JSON.py</a></td>
+                    <td class="project-title">API Data Extraction & Storage</td>
+                    <td>Saves API data locally for analysis and archiving</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">JSON Handling</span>
+                        <span class="skill-tag">Data Extraction</span>
+                    </td>
+                    <td class="notes-cell">Pulls NHL teams data from API and saves as JSON file for local analysis. Demonstrates data collection and storage for offline processing. Creates data archives and enables batch processing workflows.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="Reading Access.py" class="file-link" target="_blank">Reading Access.py</a></td>
+                    <td class="project-title">Legacy Database Integration</td>
+                    <td>Connects to Microsoft Access databases to extract business data</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Database Connectivity</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">ODBC</span>
+                    </td>
+                    <td class="notes-cell">Uses ODBC to connect to Access databases and query tables. Important for organizations with existing Access-based systems. Integrates legacy data sources into modern analytics workflows.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="sklearncode.py" class="file-link" target="_blank">sklearncode.py</a></td>
+                    <td class="project-title">Model Performance Evaluation</td>
+                    <td>Calculates AUC score to measure predictive model accuracy</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">ML Evaluation</span>
+                        <span class="skill-tag">ROC-AUC</span>
+                        <span class="skill-tag">Model Validation</span>
+                    </td>
+                    <td class="notes-cell">Computes Area Under the Curve (AUC) metric to assess classification model performance. Shows understanding of model quality metrics. Validates that predictive models are reliable before deployment.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Change the correlation.py" class="file-link" target="_blank">Change the correlation.py</a></td>
+                    <td class="project-title">Comprehensive Variable Relationship Analysis</td>
+                    <td>Automatically calculates correlations between all variables in a dataset</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Correlation Matrix</span>
+                        <span class="skill-tag">Automated Analysis</span>
+                    </td>
+                    <td class="notes-cell">Systematically tests relationships between all pairs of columns in dataset. Produces complete correlation report. Quickly identifies which factors are related without manual testing.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Mode.py" class="file-link" target="_blank">Mode.py</a></td>
+                    <td class="project-title">Central Tendency Statistical Analysis</td>
+                    <td>Finds the most common value in each dataset column</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Descriptive Statistics</span>
+                        <span class="skill-tag">Data Summarization</span>
+                    </td>
+                    <td class="notes-cell">Calculates mode (most frequent value) across all columns in Excel data. Part of standard statistical profiling. Identifies typical customer profiles or most common scenarios.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="Pull the Game details working xy.py" class="file-link" target="_blank">Pull the Game details working xy.py</a></td>
+                    <td class="project-title">Sports Event Data Extraction & Structuring</td>
+                    <td>Extracts coordinate data from NHL game events and exports to Excel</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">JSON Parsing</span>
+                        <span class="skill-tag">Data Structuring</span>
+                    </td>
+                    <td class="notes-cell">Connects to NHL game API, parses complex nested JSON data, extracts event coordinates (X/Y positions), and structures into Excel format. Shows ability to transform unstructured API data into analysis-ready formats.</td>
+                </tr>
+                
+                <tr data-category="Web Scraping">
+                    <td><a href="Scrape.ipynb" class="file-link" target="_blank">Scrape.ipynb</a></td>
+                    <td class="project-title">Automated Web Scraping & Data Collection</td>
+                    <td>Collects historical sports data across multiple dates with smart rate limiting</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Web Scraping</span>
+                        <span class="skill-tag">Date Processing</span>
+                        <span class="skill-tag">Automation</span>
+                    </td>
+                    <td class="notes-cell">Loops through date ranges to scrape NHL game data systematically. Includes random delays to avoid overwhelming servers (ethical scraping). Automates data collection that would otherwise require manual effort.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="PandasSeriesDataFrames_v3.ipynb" class="file-link" target="_blank">PandasSeriesDataFrames_v3.ipynb</a></td>
+                    <td class="project-title">Pandas Fundamentals Learning Lab</td>
+                    <td>Comprehensive exploration of Python's primary data analysis library</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Data Manipulation</span>
+                        <span class="skill-tag">DataFrames</span>
+                    </td>
+                    <td class="notes-cell">Educational notebook covering Pandas basics: series, dataframes, indexing, filtering, string methods. Shows commitment to continuous learning and foundational data wrangling skills.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="PandasProblems_v2.ipynb" class="file-link" target="_blank">PandasProblems_v2.ipynb</a></td>
+                    <td class="project-title">Pandas Practice Problems & Solutions</td>
+                    <td>Hands-on problem-solving with real data manipulation challenges</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Wrangling</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Pandas</span>
+                    </td>
+                    <td class="notes-cell">Works through structured practice problems to reinforce Pandas skills. Demonstrates ability to tackle various data transformation scenarios.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="NumpyExtraCredit03082020 - w_roll.ipynb" class="file-link" target="_blank">NumpyExtraCredit03082020 - w_roll.ipynb</a></td>
+                    <td class="project-title">Time Series Forecasting Model</td>
+                    <td>Creates custom forecasting function using weighted moving averages</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Time Series</span>
+                        <span class="skill-tag">Forecasting</span>
+                        <span class="skill-tag">NumPy</span>
+                    </td>
+                    <td class="notes-cell">Builds a forecasting function from scratch using NumPy's roll method for time-shifted calculations. Applies weighted average for predictions. Business value: Predicts future values based on historical trends.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="GroupByPivotPlotMerge.ipynb" class="file-link" target="_blank">GroupByPivotPlotMerge.ipynb</a></td>
+                    <td class="project-title">Advanced Data Aggregation & Visualization</td>
+                    <td>Demonstrates key techniques for summarizing and combining datasets</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Group By</span>
+                        <span class="skill-tag">Pivot Tables</span>
+                        <span class="skill-tag">Data Merging</span>
+                    </td>
+                    <td class="notes-cell">Covers essential business intelligence operations: grouping data by categories, creating pivot-style summaries, merging datasets, and creating visualizations. Core skills for dashboard creation.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Attendance.ipynb" class="file-link" target="_blank">Attendance.ipynb</a></td>
+                    <td class="project-title">Attendance Tracking Analysis</td>
+                    <td>Analyzes attendance data patterns and trends</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Pattern Recognition</span>
+                    </td>
+                    <td class="notes-cell">Works with attendance records to identify patterns, calculate statistics, and generate insights. Applicable to workforce analytics, event planning, or student/participant tracking.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="FinalExamVersion1 - answers-checkpoint.ipynb" class="file-link" target="_blank">FinalExamVersion1 - answers-checkpoint.ipynb</a></td>
+                    <td class="project-title">Data Mining Final Exam Solutions</td>
+                    <td>Comprehensive demonstration of data mining techniques under exam conditions</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Mining</span>
+                        <span class="skill-tag">Multiple Techniques</span>
+                    </td>
+                    <td class="notes-cell">Complete final exam showing proficiency across multiple data mining topics. Demonstrates ability to apply various techniques to solve business problems.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="Rocket_3.py" class="file-link" target="_blank">Rocket_3.py</a></td>
+                    <td class="project-title">Advanced Data Processing Project</td>
+                    <td>Custom analysis project demonstrating complex data workflows</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Processing</span>
+                    </td>
+                    <td class="notes-cell">Project file - version 3 showing iterative development and refinement.</td>
+                </tr>
+                
+                <tr data-category="Machine Learning">
+                    <td><a href="WithPLR.py" class="file-link" target="_blank">WithPLR.py</a></td>
+                    <td class="project-title">Polynomial/Logistic Regression Implementation</td>
+                    <td>Advanced regression modeling techniques</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Regression</span>
+                        <span class="skill-tag">Advanced Analytics</span>
+                    </td>
+                    <td class="notes-cell">Implements Polynomial or Logistic Regression (PLR). Demonstrates knowledge beyond simple linear models.</td>
+                </tr>
+                
+                <tr data-category="Statistical">
+                    <td><a href="Simple_2A.py" class="file-link" target="_blank">Simple_2A.py</a></td>
+                    <td class="project-title">Simplified Analysis Template</td>
+                    <td>Streamlined analysis approach for quick insights</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </td>
+                    <td class="notes-cell">Simplified or template-based approach to analysis, useful for repeatable reporting tasks.</td>
+                </tr>
+                
+                <tr data-category="Web Scraping">
+                    <td><a href="scrapebetwndates.py" class="file-link" target="_blank">scrapebetwndates.py</a></td>
+                    <td class="project-title">Date-Range Web Scraping Tool</td>
+                    <td>Scrapes data between specified date ranges</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Web Scraping</span>
+                        <span class="skill-tag">Date Handling</span>
+                    </td>
+                    <td class="notes-cell">Focused scraping tool that collects data within date boundaries. Useful for historical data collection or periodic updates.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="RdJSON.py" class="file-link" target="_blank">RdJSON.py</a></td>
+                    <td class="project-title">JSON File Reading & Parsing</td>
+                    <td>Loads and processes JSON data files</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">JSON</span>
+                        <span class="skill-tag">Data Import</span>
+                    </td>
+                    <td class="notes-cell">Reads JSON files for analysis. Essential skill for working with modern API data and web-based data sources.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="read sasfile.py" class="file-link" target="_blank">read sasfile.py</a></td>
+                    <td class="project-title">SAS Integration</td>
+                    <td>Connects to and reads SAS datasets</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">SAS</span>
+                        <span class="skill-tag">Integration</span>
+                    </td>
+                    <td class="notes-cell">Demonstrates ability to work with SAS data sources, important in organizations with existing SAS infrastructure.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="import saspy os.py" class="file-link" target="_blank">import saspy os.py</a></td>
+                    <td class="project-title">SAS-Python Bridge Configuration</td>
+                    <td>Sets up Python-SAS integration environment</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">SAS</span>
+                        <span class="skill-tag">Configuration</span>
+                    </td>
+                    <td class="notes-cell">Configures saspy library to enable Python to communicate with SAS systems. Shows cross-platform technical capability.</td>
+                </tr>
+                
+                <tr data-category="API">
+                    <td><a href="sascfg_personal.py" class="file-link" target="_blank">sascfg_personal.py</a></td>
+                    <td class="project-title">SAS Configuration File</td>
+                    <td>Personal configuration for SAS connections</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Configuration</span>
+                        <span class="skill-tag">SAS</span>
+                    </td>
+                    <td class="notes-cell">Configuration file for SAS connectivity. Shows understanding of system setup and environment management.</td>
+                </tr>
+                
+                <tr data-category="Data Quality">
+                    <td><a href="Outlier2.py" class="file-link" target="_blank">Outlier2.py</a></td>
+                    <td class="project-title">Outlier Detection Version 2</td>
+                    <td>Enhanced version of outlier detection analysis</td>
+                    <td class="skills-cell">
+                        <span class="skill-tag">Data Quality</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                    </td>
+                    <td class="notes-cell">Second version of outlier detection code, suggesting refinement and improvement of initial approach.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <footer>
+            <p><strong>Business Intelligence Data Analyst Portfolio</strong></p>
+            <p>Demonstrating practical data analysis capabilities for business decision-making</p>
+            <a href="#" class="github-link" target="_blank">View on GitHub</a>
+            <p style="margin-top: 20px; font-size: 0.9em;">Last Updated: February 2026</p>
+        </footer>
+    </div>
+    
+    <script>
+        // ============================================================================
+        // CONFIGURATION: Update these two values with your GitHub info
+        // ============================================================================
+        const GITHUB_USERNAME = 'HBRose-BIDA';  // Replace with your GitHub username
+        const GITHUB_REPO = 'Code';     // Replace with your repo name
+        // ============================================================================
+        
+        // Update all file links to point to GitHub
+        document.addEventListener('DOMContentLoaded', function() {
+            const baseURL = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO}/blob/main/`;
+            
+            // Update all file links in the table
+            const fileLinks = document.querySelectorAll('.file-link');
+            fileLinks.forEach(link => {
+                const fileName = link.textContent;
+                const encodedFileName = encodeURIComponent(fileName);
+                link.href = baseURL + encodedFileName;
+            });
+            
+            // Update the footer GitHub link
+            const githubLink = document.querySelector('.github-link');
+            if (githubLink) {
+                githubLink.href = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO}`;
+            }
+        });
+        
+        function filterTable(category) {
+            const rows = document.querySelectorAll('#projectTable tbody tr');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter rows
+            rows.forEach(row => {
+                if (category === 'all') {
+                    row.style.display = '';
+                } else {
+                    const rowCategory = row.getAttribute('data-category');
+                    if (rowCategory && rowCategory.includes(category)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

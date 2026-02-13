@@ -1,0 +1,56 @@
+File Name,Project Title,Business Purpose,Skills Demonstrated,Detailed Notes
+K-Mean Clustering.py,Customer Segmentation Analysis,Identifies distinct customer groups based on purchase behavior to enable targeted marketing strategies,Machine Learning | Customer Analytics | K-Means Clustering | Data Standardization,"Uses wine customer offer data to perform unsupervised learning clustering. Applies the elbow method to determine optimal number of customer segments. Scales data to ensure fair comparison across variables. Business value: Enables personalized marketing campaigns and customer targeting."
+
+Linear regression.py,Revenue-Distance Relationship Model,Analyzes how customer distance from physical stores impacts online revenue,Predictive Analytics | Linear Regression | Statistical Modeling,"Builds a linear model showing the relationship between online revenue (YTD) and distance from nearest store. Provides equation to predict behavior. Business value: Informs store location strategy and online/offline channel allocation."
+
+NHL API teams.py,Live Sports Data Integration,Demonstrates ability to pull real-time data from external APIs for analysis,API Integration | Data Extraction | REST APIs,"Connects to NHL's official API to retrieve current team information. Shows capability to integrate external data sources into business intelligence workflows. Business value: Foundation for automated data pipelines and live reporting."
+
+Chart values.py,E-Commerce Correlation Analysis with Visualization,Examines relationships between customer website behavior and purchase outcomes,Exploratory Data Analysis | Correlation Analysis | Data Visualization,"Analyzes key e-commerce metrics: time on site, pages visited, items in cart, and basket value. Creates visual pairplots to identify patterns. Calculates multiple correlations to understand what drives conversions. Business value: Identifies which website behaviors lead to higher sales."
+
+ID outliers.py,Automated Data Quality Detection,Identifies unusual data points that could indicate issues or opportunities,Data Quality | Statistical Analysis | Outlier Detection | Z-Score & IQR Methods,"Uses two statistical methods (Z-Score and IQR) to flag outliers across all numeric fields. Outputs results to separate Excel sheets for review. Business value: Catches data errors, fraud, or exceptional cases that need investigation."
+
+Unique User ID.py,User Count Analysis,Calculates number of distinct users in dataset for audience sizing,Data Aggregation | User Analytics | Distinct Count Operations,"Quick analysis to count unique users in a dataset. Foundation skill for calculating market size, active users, or customer base. Business value: Answers fundamental 'how many customers' questions."
+
+Dump JSON.py,API Data Extraction & Storage,Saves API data locally for analysis and archiving,API Integration | JSON Data Handling | Data Extraction,"Pulls NHL teams data from API and saves as JSON file for local analysis. Demonstrates data collection and storage for offline processing. Business value: Creates data archives and enables batch processing workflows."
+
+Reading Access.py,Legacy Database Integration,Connects to Microsoft Access databases to extract business data,Database Connectivity | SQL Queries | Legacy System Integration,"Uses ODBC to connect to Access databases and query tables. Important for organizations with existing Access-based systems. Business value: Integrates legacy data sources into modern analytics workflows."
+
+sklearncode.py,Model Performance Evaluation,Calculates AUC score to measure predictive model accuracy,Machine Learning Evaluation | ROC-AUC | Model Validation,"Computes Area Under the Curve (AUC) metric to assess classification model performance. Shows understanding of model quality metrics. Business value: Validates that predictive models are reliable before deployment."
+
+Change the correlation.py,Comprehensive Variable Relationship Analysis,Automatically calculates correlations between all variables in a dataset,Statistical Analysis | Correlation Matrix | Automated Analysis,"Systematically tests relationships between all pairs of columns in dataset. Produces complete correlation report. Business value: Quickly identifies which factors are related without manual testing."
+
+Mode.py,Central Tendency Statistical Analysis,Finds the most common value in each dataset column,Descriptive Statistics | Data Summarization,"Calculates mode (most frequent value) across all columns in Excel data. Part of standard statistical profiling. Business value: Identifies typical customer profiles or most common scenarios."
+
+Pull the Game details working xy.py,Sports Event Data Extraction & Structuring,Extracts coordinate data from NHL game events and exports to Excel,API Integration | JSON Parsing | Data Structuring | Excel Export,"Connects to NHL game API, parses complex nested JSON data, extracts event coordinates (X/Y positions), and structures into Excel format. Business value: Shows ability to transform unstructured API data into analysis-ready formats."
+
+Scrape.ipynb,Automated Web Scraping & Data Collection,Collects historical sports data across multiple dates with smart rate limiting,Web Scraping | Date Range Processing | Automated Data Collection,"Loops through date ranges to scrape NHL game data systematically. Includes random delays to avoid overwhelming servers (ethical scraping). Business value: Automates data collection that would otherwise require manual effort."
+
+PandasSeriesDataFrames_v3.ipynb,Pandas Fundamentals Learning Lab,Comprehensive exploration of Python's primary data analysis library,Pandas | Data Manipulation | Series & DataFrames | String Operations,"Educational notebook covering Pandas basics: series, dataframes, indexing, filtering, string methods. Shows commitment to continuous learning and foundational data wrangling skills."
+
+PandasProblems_v2.ipynb,Pandas Practice Problems & Solutions,Hands-on problem-solving with real data manipulation challenges,Data Wrangling | Problem Solving | Pandas Operations,"Works through structured practice problems to reinforce Pandas skills. Demonstrates ability to tackle various data transformation scenarios."
+
+NumpyExtraCredit03082020 - w_roll.ipynb,Time Series Forecasting Model,Creates custom forecasting function using weighted moving averages,Time Series Analysis | Forecasting | NumPy | Custom Function Development,"Builds a forecasting function from scratch using NumPy's roll method for time-shifted calculations. Applies weighted average for predictions. Business value: Predicts future values based on historical trends (sales, inventory, etc.)."
+
+GroupByPivotPlotMerge.ipynb,Advanced Data Aggregation & Visualization,Demonstrates key techniques for summarizing and combining datasets,Group By | Pivot Tables | Data Merging | Plotting,"Covers essential business intelligence operations: grouping data by categories, creating pivot-style summaries, merging datasets, and creating visualizations. Core skills for dashboard creation."
+
+Attendance.ipynb,Attendance Tracking Analysis,Analyzes attendance data patterns and trends,Data Analysis | Pattern Recognition | Attendance Metrics,"Works with attendance records to identify patterns, calculate statistics, and generate insights. Applicable to workforce analytics, event planning, or student/participant tracking."
+
+FinalExamVersion1 - answers-checkpoint.ipynb,Data Mining Final Exam Solutions,Comprehensive demonstration of data mining techniques under exam conditions,Data Mining | Multiple Techniques | Problem Solving Under Pressure,"Complete final exam showing proficiency across multiple data mining topics. Demonstrates ability to apply various techniques to solve business problems."
+
+Rocket_3.py,Advanced Data Processing Project,Custom analysis project demonstrating complex data workflows,(Requires file review for specific skills),"Project file - detailed review recommended. File name suggests iterative development (version 3) showing persistence and refinement."
+
+WithPLR.py,Polynomial or Logistic Regression Implementation,(Requires file review),Advanced Regression Techniques,"Filename suggests implementation of Polynomial or Logistic Regression (PLR). Demonstrates knowledge beyond simple linear models."
+
+Simple_2A.py,Simplified Analysis Template,Streamlined analysis approach for quick insights,(Requires file review),"Suggests a simplified or template-based approach to analysis, useful for repeatable reporting tasks."
+
+scrapebetwndates.py,Date-Range Web Scraping Tool,Scrapes data between specified date ranges,Web Scraping | Date Handling | Data Collection Automation,"Focused scraping tool that collects data within date boundaries. Useful for historical data collection or periodic updates."
+
+RdJSON.py,JSON File Reading & Parsing,Loads and processes JSON data files,JSON Handling | Data Import,"Reads JSON files for analysis. Essential skill for working with modern API data and web-based data sources."
+
+read sasfile.py,SAS Integration,Connects to and reads SAS datasets,SAS Connectivity | Multi-Platform Integration,"Demonstrates ability to work with SAS data sources, important in organizations with existing SAS infrastructure."
+
+import saspy os.py,SAS-Python Bridge Configuration,Sets up Python-SAS integration environment,SAS Integration | Environment Configuration,"Configures saspy library to enable Python to communicate with SAS systems. Shows cross-platform technical capability."
+
+sascfg_personal.py,SAS Configuration File,Personal configuration for SAS connections,Configuration Management | SAS Setup,"Configuration file for SAS connectivity. Shows understanding of system setup and environment management."
+
+Outlier2.py,Outlier Detection Version 2,Enhanced version of outlier detection analysis,Data Quality | Statistical Analysis | Iterative Improvement,"Second version of outlier detection code, suggesting refinement and improvement of initial approach."
