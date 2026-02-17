@@ -238,6 +238,7 @@
             <div>
                 <span class="skills-badge">Python</span>
                 <span class="skills-badge">Pandas</span>
+                <span class="skills-badge">ETL & Data Pipelines</span>
                 <span class="skills-badge">Machine Learning</span>
                 <span class="skills-badge">Statistical Analysis</span>
                 <span class="skills-badge">API Integration</span>
@@ -256,13 +257,14 @@
                 <div class="stat-label">Skills</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">5+</div>
+                <div class="stat-number">6+</div>
                 <div class="stat-label">Categories</div>
             </div>
         </div>
         
         <div class="filter-section">
             <button class="filter-btn active" onclick="filterTable('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterTable('ETL')">ETL & Data Pipelines</button>
             <button class="filter-btn" onclick="filterTable('Machine Learning')">Machine Learning</button>
             <button class="filter-btn" onclick="filterTable('Statistical')">Statistical Analysis</button>
             <button class="filter-btn" onclick="filterTable('API')">API & Integration</button>
@@ -305,11 +307,12 @@
                     <td class="notes-cell">Builds a linear model showing the relationship between online revenue (YTD) and distance from nearest store. Business value: Informs store location strategy and online/offline channel allocation.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="NHL API teams.py" class="file-link" target="_blank">NHL API teams.py</a></td>
                     <td class="project-title">Live Sports Data Integration</td>
                     <td>Demonstrates ability to pull real-time data from external APIs for analysis</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">API Integration</span>
                         <span class="skill-tag">REST APIs</span>
                         <span class="skill-tag">Data Extraction</span>
@@ -352,11 +355,12 @@
                     <td class="notes-cell">Quick analysis to count unique users in a dataset. Foundation skill for calculating market size, active users, or customer base. Answers fundamental 'how many customers' questions.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="Dump JSON.py" class="file-link" target="_blank">Dump JSON.py</a></td>
                     <td class="project-title">API Data Extraction & Storage</td>
                     <td>Saves API data locally for analysis and archiving</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">API Integration</span>
                         <span class="skill-tag">JSON Handling</span>
                         <span class="skill-tag">Data Extraction</span>
@@ -364,11 +368,12 @@
                     <td class="notes-cell">Pulls NHL teams data from API and saves as JSON file for local analysis. Demonstrates data collection and storage for offline processing. Creates data archives and enables batch processing workflows.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="Reading Access.py" class="file-link" target="_blank">Reading Access.py</a></td>
                     <td class="project-title">Legacy Database Integration</td>
                     <td>Connects to Microsoft Access databases to extract business data</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">Database Connectivity</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">ODBC</span>
@@ -411,23 +416,25 @@
                     <td class="notes-cell">Calculates mode (most frequent value) across all columns in Excel data. Part of standard statistical profiling. Identifies typical customer profiles or most common scenarios.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="Pull the Game details working xy.py" class="file-link" target="_blank">Pull the Game details working xy.py</a></td>
                     <td class="project-title">Sports Event Data Extraction & Structuring</td>
                     <td>Extracts coordinate data from NHL game events and exports to Excel</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">API Integration</span>
                         <span class="skill-tag">JSON Parsing</span>
-                        <span class="skill-tag">Data Structuring</span>
+                        <span class="skill-tag">Data Transformation</span>
                     </td>
-                    <td class="notes-cell">Connects to NHL game API, parses complex nested JSON data, extracts event coordinates (X/Y positions), and structures into Excel format. Shows ability to transform unstructured API data into analysis-ready formats.</td>
+                    <td class="notes-cell">Connects to NHL game API, parses complex nested JSON data, extracts event coordinates (X/Y positions), and structures into Excel format. Classic ETL pipeline: Extract from API, Transform nested JSON, Load to Excel.</td>
                 </tr>
                 
-                <tr data-category="Web Scraping">
+                <tr data-category="Web Scraping ETL">
                     <td><a href="Scrape.ipynb" class="file-link" target="_blank">Scrape.ipynb</a></td>
                     <td class="project-title">Automated Web Scraping & Data Collection</td>
                     <td>Collects historical sports data across multiple dates with smart rate limiting</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">Web Scraping</span>
                         <span class="skill-tag">Date Processing</span>
                         <span class="skill-tag">Automation</span>
@@ -538,55 +545,60 @@
                     <td class="notes-cell">Simplified or template-based approach to analysis, useful for repeatable reporting tasks.</td>
                 </tr>
                 
-                <tr data-category="Web Scraping">
+                <tr data-category="Web Scraping ETL">
                     <td><a href="scrapebetwndates.py" class="file-link" target="_blank">scrapebetwndates.py</a></td>
                     <td class="project-title">Date-Range Web Scraping Tool</td>
                     <td>Scrapes data between specified date ranges</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">Web Scraping</span>
                         <span class="skill-tag">Date Handling</span>
                     </td>
                     <td class="notes-cell">Focused scraping tool that collects data within date boundaries. Useful for historical data collection or periodic updates.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="RdJSON.py" class="file-link" target="_blank">RdJSON.py</a></td>
                     <td class="project-title">JSON File Reading & Parsing</td>
                     <td>Loads and processes JSON data files</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">JSON</span>
                         <span class="skill-tag">Data Import</span>
                     </td>
                     <td class="notes-cell">Reads JSON files for analysis. Essential skill for working with modern API data and web-based data sources.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="read sasfile.py" class="file-link" target="_blank">read sasfile.py</a></td>
                     <td class="project-title">SAS Integration</td>
                     <td>Connects to and reads SAS datasets</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">SAS</span>
                         <span class="skill-tag">Integration</span>
                     </td>
                     <td class="notes-cell">Demonstrates ability to work with SAS data sources, important in organizations with existing SAS infrastructure.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="import saspy os.py" class="file-link" target="_blank">import saspy os.py</a></td>
                     <td class="project-title">SAS-Python Bridge Configuration</td>
                     <td>Sets up Python-SAS integration environment</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">SAS</span>
                         <span class="skill-tag">Configuration</span>
                     </td>
                     <td class="notes-cell">Configures saspy library to enable Python to communicate with SAS systems. Shows cross-platform technical capability.</td>
                 </tr>
                 
-                <tr data-category="API">
+                <tr data-category="API ETL">
                     <td><a href="sascfg_personal.py" class="file-link" target="_blank">sascfg_personal.py</a></td>
                     <td class="project-title">SAS Configuration File</td>
                     <td>Personal configuration for SAS connections</td>
                     <td class="skills-cell">
+                        <span class="skill-tag">ETL</span>
                         <span class="skill-tag">Configuration</span>
                         <span class="skill-tag">SAS</span>
                     </td>
