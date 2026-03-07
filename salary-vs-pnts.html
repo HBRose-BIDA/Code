@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIDA File Navigator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-shape" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Salary vs Points Project</p>
+      <h1>BIDA File Navigator</h1>
+      <p class="subhead">
+        Static website generated from the artifact inventory baseline. The file list below is embedded in
+        this site for GitHub hosting.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="File name, function, or technique" autocomplete="off" />
+        </label>
+
+        <label>
+          <span>File Type</span>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="docx">DOCX</option>
+            <option value="xlsx">XLSX</option>
+            <option value="pptx">PPTX</option>
+          </select>
+        </label>
+
+        <label>
+          <span>BIDA Stage</span>
+          <select id="phaseFilter">
+            <option value="all">All stages</option>
+            <option value="Define and Frame">Define and Frame</option>
+            <option value="Analyze and Model">Analyze and Model</option>
+            <option value="Communicate and Decide">Communicate and Decide</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sort</span>
+          <select id="sortOrder">
+            <option value="asc">Number: 1 to 19</option>
+            <option value="desc">Number: 19 to 1</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="stats" aria-label="Summary">
+        <article class="panel stat">
+          <p class="stat-label">Visible Files</p>
+          <p id="visibleCount" class="stat-value">0</p>
+        </article>
+        <article class="panel stat">
+          <p class="stat-label">Total Files</p>
+          <p id="totalCount" class="stat-value">0</p>
+        </article>
+        <article class="panel stat">
+          <p class="stat-label">Docs / Sheets / Slides</p>
+          <p id="typeBreakdown" class="stat-value">0 / 0 / 0</p>
+        </article>
+      </section>
+
+      <section class="panel table-wrap" aria-label="Artifact table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>File Name</th>
+              <th>Function In BIDA Project</th>
+              <th>BIDA Tools and Techniques</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
