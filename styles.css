@@ -204,6 +204,19 @@ tbody tr:hover {
   color: var(--muted);
 }
 
+.site-footer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.2rem 1rem 1.2rem;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;
@@ -232,5 +245,9 @@ tbody tr:hover {
 
   .layout {
     padding: 0.8rem;
+  }
+
+  .site-footer {
+    padding: 0.1rem 0.8rem 1rem;
   }
 }
