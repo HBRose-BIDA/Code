@@ -41,7 +41,7 @@ body {
 .hero {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 1.5rem 1rem 0.2rem;
+  padding: 1.6rem 1rem 0.8rem;
   animation: fade-rise 600ms ease both;
 }
 
@@ -54,7 +54,7 @@ body {
   font-weight: 700;
 }
 
-h1 {
+.hero h1 {
   margin: 0.25rem 0 0;
   font-family: "DM Serif Text", serif;
   font-size: clamp(2rem, 3.8vw, 3.2rem);
@@ -63,10 +63,17 @@ h1 {
 }
 
 .subhead {
-  margin: 0.7rem 0 0;
+  margin: 0.75rem 0 0;
   max-width: 68ch;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.hero-note {
+  margin: 0.45rem 0 0;
+  color: var(--accent-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .layout {
@@ -122,31 +129,6 @@ select:focus {
   border-color: rgba(15, 138, 141, 0.5);
 }
 
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(160px, 1fr));
-  gap: 0.8rem;
-}
-
-.stat {
-  padding: 0.85rem 0.95rem;
-}
-
-.stat-label {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-}
-
-.stat-value {
-  margin: 0.4rem 0 0;
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
 .table-wrap {
   overflow: auto;
 }
@@ -154,7 +136,7 @@ select:focus {
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 980px;
+  min-width: 820px;
 }
 
 thead th {
@@ -191,11 +173,6 @@ tbody tr:hover {
   background: rgba(237, 122, 74, 0.16);
   color: #874022;
   font-size: 0.76rem;
-  font-weight: 700;
-}
-
-.file-name {
-  margin: 0;
   font-weight: 700;
 }
 
@@ -241,10 +218,6 @@ tbody tr:hover {
 @media (max-width: 980px) {
   .controls {
     grid-template-columns: repeat(2, minmax(160px, 1fr));
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
   }
 }
 
