@@ -231,6 +231,27 @@ const artifacts = [
     }
 ];
 
+const AZURE_BLOB_BASE_URL = "https://hbrbida.blob.core.windows.net/class-files/";
+const OFFICE_VIEWER_BASE_URL = "https://view.officeapps.live.com/op/view.aspx?src=";
+const OFFICE_VIEWABLE_TYPES = new Set(["docx", "pptx", "xlsx", "csv"]);
+
+function buildAzureBlobUrl(fileName) {
+  return `${AZURE_BLOB_BASE_URL}${encodeURIComponent(fileName)}`;
+}
+
+function buildOfficeViewerUrl(fileName) {
+  const sourceUrl = `${AZURE_BLOB_BASE_URL}${fileName}`;
+  return `${OFFICE_VIEWER_BASE_URL}${encodeURIComponent(sourceUrl)}`;
+}
+
+function buildOpenUrl(fileName, fileType) {
+  if (OFFICE_VIEWABLE_TYPES.has(fileType)) {
+    return buildOfficeViewerUrl(fileName);
+  }
+
+  return buildAzureBlobUrl(fileName);
+}
+
 const state = {
   search: "",
   type: "all",
@@ -265,7 +286,7 @@ const dataset = artifacts
     methodsAndTechniques: item.methodsAndTechniques,
     fileType: item.fileType,
     stage: item.stage,
-    openUrl: item.openUrl,
+    openUrl: buildOpenUrl(item.fileName, item.fileType),
     searchText: `${item.stepToken} ${item.artifactPurpose} ${item.methodsAndTechniques} ${item.fileType} ${item.stage}`.toLowerCase(),
   }))
   .sort((a, b) => {
@@ -316,7 +337,7 @@ function rowHtml(row, index) {
       </td>
       <td>${escapeHtml(row.methodsAndTechniques)}</td>
       <td>
-        <a class="view-link" href="${row.openUrl}" target="_blank" rel="noopener noreferrer">Open</a>
+        <a class="view-link" href="${escapeHtml(row.openUrl)}" target="_blank" rel="noopener noreferrer">Open</a>
       </td>
     </tr>
   `;
