@@ -266,13 +266,16 @@ const dataset = artifacts
     fileType: item.fileType,
     stage: item.stage,
     openUrl: item.openUrl,
-    searchText: `${item.fileName} ${item.artifactPurpose} ${item.methodsAndTechniques} ${item.fileType} ${item.stage}`.toLowerCase(),
+    searchText: `${item.stepToken} ${item.artifactPurpose} ${item.methodsAndTechniques} ${item.fileType} ${item.stage}`.toLowerCase(),
   }))
   .sort((a, b) => {
     if (a.stepNumber !== b.stepNumber) {
       return a.stepNumber - b.stepNumber;
     }
-    return a.fileName.localeCompare(b.fileName);
+    if (a.stepToken !== b.stepToken) {
+      return a.stepToken.localeCompare(b.stepToken, undefined, { numeric: true, sensitivity: "base" });
+    }
+    return a.artifactPurpose.localeCompare(b.artifactPurpose);
   });
 
 function filteredRows() {
@@ -290,7 +293,11 @@ function filteredRows() {
       return (a.stepNumber - b.stepNumber) * direction;
     }
 
-    return a.fileName.localeCompare(b.fileName) * direction;
+    if (a.stepToken !== b.stepToken) {
+      return a.stepToken.localeCompare(b.stepToken, undefined, { numeric: true, sensitivity: "base" }) * direction;
+    }
+
+    return a.artifactPurpose.localeCompare(b.artifactPurpose) * direction;
   });
 
   return rows;
@@ -304,9 +311,9 @@ function rowHtml(row, index) {
         <p class="file-meta">${escapeHtml(row.fileType.toUpperCase())} | ${escapeHtml(row.stage)}</p>
       </td>
       <td>
-        <p class="file-name">${escapeHtml(row.fileName)}</p>
+        <p class="artifact-title">${escapeHtml(row.artifactPurpose)}</p>
+        <p class="artifact-step">Step ${escapeHtml(row.stepToken)}</p>
       </td>
-      <td>${escapeHtml(row.artifactPurpose)}</td>
       <td>${escapeHtml(row.methodsAndTechniques)}</td>
       <td>
         <a class="view-link" href="${row.openUrl}" target="_blank" rel="noopener noreferrer">Open</a>
