@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Wild Overview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --text: #1d2433;
+        --muted: #4e5a75;
+        --border: #d8dfeb;
+        --accent: #1f5fbf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #eef3fb 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .content {
+        max-width: 920px;
+        margin: 40px auto;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 10px 30px rgba(31, 47, 74, 0.08);
+      }
+
+      h1,
+      h2 {
+        line-height: 1.25;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #123b78;
+      }
+
+      h2 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: #184a91;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 6px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      ul,
+      ol {
+        margin: 10px 0 10px 24px;
+        padding: 0;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      @media (max-width: 700px) {
+        .content {
+          margin: 16px;
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="content">
+      <h1>Project Wild Overview</h1>
+
+      <h2>What This Project Is</h2>
+      <p>
+        Project Wild is a sport analytics project focused on organizing and communicating decision-support work for NHL Wild analysis.
+      </p>
+      <p>At a high level, it moves through a full analytics lifecycle:</p>
+      <ul>
+        <li>define the business context and stakeholder needs,</li>
+        <li>design and prepare data assets,</li>
+        <li>perform modeling and analytical comparison,</li>
+        <li>deliver executive and technical communication artifacts,</li>
+        <li>retain reference material for critique and methodology.</li>
+      </ul>
+
+      <h2>Core Question the Project Addresses</h2>
+      <p>
+        How can structured analytics artifacts support better hockey operations decisions from early problem framing through final strategy communication?
+      </p>
+
+      <h2>What Evidence Exists in This Project</h2>
+      <p>The project currently includes 26 documented artifacts.</p>
+      <p>By lifecycle stage:</p>
+      <ul>
+        <li>Framing and Discovery: 5</li>
+        <li>Data Engineering and Preparation: 11</li>
+        <li>Modeling and Analytics: 1</li>
+        <li>Communication and Delivery: 8</li>
+        <li>Reference and Supporting Material: 1</li>
+      </ul>
+
+      <p>By file type:</p>
+      <ul>
+        <li>DOCX: 16</li>
+        <li>PPTX: 6</li>
+        <li>XLSX: 4</li>
+      </ul>
+
+      <h2>Project Storyline (Start to Finish)</h2>
+      <ol>
+        <li>
+          <p><strong>Framing and Discovery</strong></p>
+          <p>
+            The project opens with context-setting artifacts that establish stakeholder landscape, business problem framing,
+            requirements, and opportunity discovery.
+          </p>
+        </li>
+        <li>
+          <p><strong>Data Engineering and Preparation</strong></p>
+          <p>
+            The largest body of work is here. Artifacts cover data source landscape, logical modeling, feature engineering,
+            data dictionary/governance, quality assessment, cleaning, and integration into analysis-ready datasets.
+          </p>
+        </li>
+        <li>
+          <p><strong>Modeling and Analytics</strong></p>
+          <p>A focused modeling artifact documents forecasting and comparative analysis workflow.</p>
+        </li>
+        <li>
+          <p><strong>Communication and Delivery</strong></p>
+          <p>
+            The project shifts into value communication, technical handoff, evaluation notes, project summary, and strategy
+            presentation materials intended for executive and operational audiences.
+          </p>
+        </li>
+        <li>
+          <p><strong>Reference and Supporting Material</strong></p>
+          <p>A final reference artifact preserves methodology critique and supporting context.</p>
+        </li>
+      </ol>
+
+      <h2>What the Project Delivers</h2>
+      <p>
+        This project delivers a structured, end-to-end analytics record rather than only a final dashboard or model output.
+      </p>
+      <p>Primary deliverables include:</p>
+      <ul>
+        <li>business and stakeholder alignment artifacts,</li>
+        <li>data architecture and preparation artifacts,</li>
+        <li>modeling walkthrough evidence,</li>
+        <li>executive narrative and strategy communication assets,</li>
+        <li>technical handoff documentation.</li>
+      </ul>
+
+      <h2>How to Read the Project Quickly</h2>
+      <p>If you need a fast understanding path, review in this order:</p>
+      <ol>
+        <li>early framing artifacts (steps 1-5),</li>
+        <li>data engineering backbone (steps 6-16),</li>
+        <li>modeling evidence (step 17),</li>
+        <li>delivery and strategy materials (steps 18-25),</li>
+        <li>methodology reference (step 26).</li>
+      </ol>
+
+      <h2>Interpretation Notes</h2>
+      <ul>
+        <li>The strongest project emphasis is on data engineering/preparation and communication/delivery.</li>
+        <li>Modeling evidence is present but comparatively compact in the current artifact set.</li>
+        <li>The collection is suitable for both technical traceability and executive storytelling.</li>
+      </ul>
+
+      <h2>Scope Boundary</h2>
+      <p>This overview describes the project content and structure itself.</p>
+      <p class="muted">
+        It is intentionally separate from the website implementation process used to publish or browse the artifacts.
+      </p>
+    </main>
+  </body>
+</html>
