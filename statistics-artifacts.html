@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics Techniques Library | Organized Artifact Explorer</title>
+    <link rel="stylesheet" href="./statistics-artifacts.css?v=20260315a" />
+  </head>
+  <body>
+    <div class="background-shape" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Sport Analytics / Techniques Library</p>
+      <h1>Statistics Techniques Library</h1>
+      <p class="subhead">
+        This page organizes statistics-related artifacts with clear purpose and method metadata for
+        fast review and easy retrieval.
+      </p>
+      <p class="hero-note">Use quick filters, search, and file-type filtering to navigate models, forecasts, and supporting analysis artifacts.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Technique, purpose, methods, or file" autocomplete="off" />
+        </label>
+
+        <label>
+          <span>File Type</span>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="docx">DOCX</option>
+            <option value="pptx">PPTX</option>
+            <option value="xlsx">XLSX</option>
+            <option value="xls">XLS</option>
+            <option value="html">HTML</option>
+            <option value="rtf">RTF</option>
+            <option value="pdf">PDF</option>
+          </select>
+        </label>
+
+        <div class="stats">
+          <span id="shownCount">0 shown</span>
+          <span id="totalCount">0 total</span>
+        </div>
+      </section>
+
+      <section class="panel organization" aria-label="Technique organization">
+        <h2>Technique Areas and Quick Filters</h2>
+        <p>Artifacts cover descriptive statistics, regression, clustering, forecasting, and predictive analytics practice.</p>
+        <p>Use a quick filter to jump into a method family:</p>
+        <div class="technique-chips" role="group" aria-label="Technique quick filters">
+          <button type="button" class="technique-chip" data-search-query="descriptive statistics|summary statistics">Descriptive and summary statistics</button>
+          <button type="button" class="technique-chip" data-search-query="linear regression|logistic regression|regression">Regression methods</button>
+          <button type="button" class="technique-chip" data-search-query="k-means|clustering|cluster">Clustering models</button>
+          <button type="button" class="technique-chip" data-search-query="forecast|forecasting|time series|prediction">Forecasting and prediction</button>
+          <button type="button" class="technique-chip" data-search-query="predictive analytics|model">Predictive analytics</button>
+          <button type="button" class="technique-chip clear-chip" data-search-query="">Show all artifacts</button>
+        </div>
+        <p class="technique-hint">You can also type your own terms in Search for finer filtering.</p>
+      </section>
+
+      <section class="panel table-wrap" aria-label="Artifact table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Technique and Artifact Purpose</th>
+              <th>Methods, Tools, and Techniques</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Build metadata">
+      <p>Feed source: ARTIFACT_FEED with Azure links built from the same local filename pattern.</p>
+    </footer>
+
+    <script src="./statistics-artifacts.js?v=20260315a" defer></script>
+  </body>
+</html>
