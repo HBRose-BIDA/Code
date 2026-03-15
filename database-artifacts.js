@@ -329,10 +329,20 @@ function filterBySearch(records, text) {
     return records;
   }
 
+  const orTerms = query
+    .split("|")
+    .map((term) => term.trim())
+    .filter((term) => term.length > 0);
+
   return records.filter((record) => {
     const combined = [record.artifact, record.purpose, record.methods, record.file, record.code]
       .join(" ")
       .toLowerCase();
+
+    if (orTerms.length > 1) {
+      return orTerms.some((term) => combined.includes(term));
+    }
+
     return combined.includes(query);
   });
 }
@@ -357,9 +367,23 @@ const tableBody = document.getElementById("tableBody");
 const emptyState = document.getElementById("emptyState");
 const searchInput = document.getElementById("searchInput");
 const typeFilter = document.getElementById("typeFilter");
-const sortOrder = document.getElementById("sortOrder");
 const shownCount = document.getElementById("shownCount");
 const totalCount = document.getElementById("totalCount");
+const techniqueChips = Array.from(document.querySelectorAll(".technique-chip"));
+
+function syncTechniqueChipState(searchText) {
+  const normalizedSearch = (searchText || "").trim().toLowerCase();
+
+  techniqueChips.forEach((chip) => {
+    const chipQuery = (chip.dataset.searchQuery || "").trim().toLowerCase();
+    const isClearChip = chip.classList.contains("clear-chip");
+    const isActive = chipQuery
+      ? chipQuery === normalizedSearch
+      : isClearChip && normalizedSearch.length === 0;
+
+    chip.classList.toggle("active", isActive);
+  });
+}
 
 const allRecords = ARTIFACT_FEED
   .map(normalizeRecord)
@@ -371,18 +395,21 @@ function render() {
   const filtered = filterBySearch(typed, searchInput.value);
   const sorted = filtered.slice().sort(sortRecords);
 
-  if (sortOrder.value === "desc") {
-    sorted.reverse();
-  }
-
   buildRows(sorted, tableBody);
   emptyState.hidden = sorted.length !== 0;
   shownCount.textContent = sorted.length + " shown";
   totalCount.textContent = allRecords.length + " total";
+  syncTechniqueChipState(searchInput.value);
 }
 
 searchInput.addEventListener("input", render);
 typeFilter.addEventListener("change", render);
-sortOrder.addEventListener("change", render);
+
+techniqueChips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    searchInput.value = (chip.dataset.searchQuery || "").trim();
+    render();
+  });
+});
 
 render();
