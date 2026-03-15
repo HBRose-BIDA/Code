@@ -224,9 +224,7 @@ tbody td {
 }
 
 tbody tr {
-  opacity: 0;
-  transform: translateY(6px);
-  animation: rowIn 360ms ease-out forwards;
+  animation: rowIn 360ms ease-out both;
   animation-delay: var(--row-delay, 0ms);
 }
 
@@ -323,5 +321,11 @@ tbody tr:hover {
 
   table {
     min-width: 700px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  tbody tr {
+    animation: none;
   }
 }
