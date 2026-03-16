@@ -715,12 +715,14 @@ function wireEvents() {
 }
 
 async function loadFeedPayload() {
-  if (Array.isArray(window.CODE_TECHNIQUES_FEED) && window.CODE_TECHNIQUES_FEED.length > 0) {
-    return window.CODE_TECHNIQUES_FEED;
+  const windowFeed = typeof window !== "undefined" ? window.CODE_TECHNIQUES_FEED : undefined;
+  if (Array.isArray(windowFeed) && windowFeed.length > 0) {
+    return windowFeed;
   }
 
-  if (Array.isArray(EMBEDDED_FEED) && EMBEDDED_FEED.length > 0) {
-    return EMBEDDED_FEED;
+  const embeddedFeed = typeof EMBEDDED_FEED !== "undefined" ? EMBEDDED_FEED : undefined;
+  if (Array.isArray(embeddedFeed) && embeddedFeed.length > 0) {
+    return embeddedFeed;
   }
 
   const candidateUrls = [
@@ -739,7 +741,7 @@ async function loadFeedPayload() {
     }
   }
 
-  throw new Error("Unable to load feed from embedded JS, window feed, or JSON file.");
+  return [];
 }
 
 async function init() {
@@ -748,12 +750,13 @@ async function init() {
 
   try {
     const payload = await loadFeedPayload();
-    state.records = payload.map(normalizeRecord).filter((record) => record.filePath.length > 0);
+    const safePayload = Array.isArray(payload) ? payload : [];
+    state.records = safePayload.map(normalizeRecord).filter((record) => record.filePath.length > 0);
     render();
   } catch (error) {
     ui.tableBody.innerHTML = "";
     ui.emptyState.hidden = false;
-    ui.emptyState.textContent = "Unable to load feed data. Check that code-techniques-feed.js or code-techniques-feed.json is present in this directory.";
+    ui.emptyState.textContent = "Unable to initialize code data. Refresh and ensure you are loading the latest code-techniques.js file.";
     ui.shownCount.textContent = "0 shown";
     ui.totalCount.textContent = "0 total";
   }
