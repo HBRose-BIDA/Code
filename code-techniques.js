@@ -1,4 +1,4 @@
-const TOPIC_ORDER = [
+﻿const TOPIC_ORDER = [
   "Python",
   "Pandas",
   "NumPy",
@@ -31,6 +31,438 @@ const BUSINESS_PURPOSE_BY_TOPIC = {
 const GITHUB_USERNAME = "HBRose-BIDA";
 const GITHUB_REPO = "Code";
 const GITHUB_BLOB_BASE = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO}/blob/main/`;
+
+const EMBEDDED_FEED = [
+  {
+    "filePath": "Change the correlation.py",
+    "fileType": "py",
+    "title": "Change the correlation",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "Statistical Analysis"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "print_correlation"
+    ]
+  },
+  {
+    "filePath": "Chart values.py",
+    "fileType": "py",
+    "title": "Chart values",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "Statistical Analysis",
+      "Data Visualization"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "ID outliers.py",
+    "fileType": "py",
+    "title": "ID outliers",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "Data Quality",
+      "Statistical Analysis",
+      "API Integration"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "detect_outliers"
+    ]
+  },
+  {
+    "filePath": "import saspy, os.py",
+    "fileType": "py",
+    "title": "import saspy, os",
+    "primaryTopic": "SAS",
+    "topics": [
+      "Python",
+      "SAS"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "K-Mean Clustering.py",
+    "fileType": "py",
+    "title": "K Mean Clustering",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "Machine Learning",
+      "Data Visualization"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Linear regression.py",
+    "fileType": "py",
+    "title": "Linear regression",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "Statistical Analysis",
+      "Machine Learning"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Mode.py",
+    "fileType": "py",
+    "title": "Mode",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "Statistical Analysis"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "NumpyExtraCredit03082020 - Part 2.ipynb",
+    "fileType": "ipynb",
+    "title": "NumpyExtraCredit03082020   Part 2",
+    "primaryTopic": "NumPy",
+    "topics": [
+      "Python",
+      "NumPy",
+      "ETL and Data Pipelines"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "compute_estimated_AUC"
+    ]
+  },
+  {
+    "filePath": "NumpyExtraCredit03082020 - w_roll.ipynb",
+    "fileType": "ipynb",
+    "title": "NumpyExtraCredit03082020   w roll",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "ETL and Data Pipelines",
+      "Statistical Analysis"
+    ],
+    "functionCount": 2,
+    "functions": [
+      "forecast",
+      "compute_estimated_AUC"
+    ]
+  },
+  {
+    "filePath": "Outlier2.py",
+    "fileType": "py",
+    "title": "Outlier2",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "ETL and Data Pipelines",
+      "Data Quality"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "identify_outliers"
+    ]
+  },
+  {
+    "filePath": "PandasProblems_v2.ipynb",
+    "fileType": "ipynb",
+    "title": "PandasProblems v2",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "PandasSeriesDataFrames_v3.ipynb",
+    "fileType": "ipynb",
+    "title": "PandasSeriesDataFrames v3",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "ETL and Data Pipelines",
+      "Data Quality"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "read sasfile.py",
+    "fileType": "py",
+    "title": "read sasfile",
+    "primaryTopic": "SAS",
+    "topics": [
+      "Python",
+      "SAS"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Reading Access.py",
+    "fileType": "py",
+    "title": "Reading Access",
+    "primaryTopic": "SQL",
+    "topics": [
+      "Python",
+      "SQL"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Rocket_3.py",
+    "fileType": "py",
+    "title": "Rocket 3",
+    "primaryTopic": "NumPy",
+    "topics": [
+      "Python",
+      "NumPy",
+      "ETL and Data Pipelines",
+      "Statistical Analysis",
+      "Data Visualization"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "sascfg_personal.py",
+    "fileType": "py",
+    "title": "sascfg personal",
+    "primaryTopic": "SAS",
+    "topics": [
+      "SAS"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Simple_2A.py",
+    "fileType": "py",
+    "title": "Simple 2A",
+    "primaryTopic": "NumPy",
+    "topics": [
+      "Python",
+      "NumPy",
+      "Statistical Analysis",
+      "Data Visualization"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "sklearncode.py",
+    "fileType": "py",
+    "title": "sklearncode",
+    "primaryTopic": "NumPy",
+    "topics": [
+      "Python",
+      "NumPy",
+      "Machine Learning"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/Attendance.ipynb",
+    "fileType": "ipynb",
+    "title": "Attendance",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/Dump JSON.py",
+    "fileType": "py",
+    "title": "Dump JSON",
+    "primaryTopic": "ETL and Data Pipelines",
+    "topics": [
+      "Python",
+      "ETL and Data Pipelines",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/FinalExamVersion1 - answers -Part 2-checkpoint.ipynb",
+    "fileType": "ipynb",
+    "title": "FinalExamVersion1   answers  Part 2 checkpoint",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "Data Quality",
+      "Data Visualization"
+    ],
+    "functionCount": 2,
+    "functions": [
+      "fill_age",
+      "convert_sex_to_binary"
+    ]
+  },
+  {
+    "filePath": "Sport/GroupByPivotPlotMerge.ipynb",
+    "fileType": "ipynb",
+    "title": "GroupByPivotPlotMerge",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "ETL and Data Pipelines",
+      "Data Quality",
+      "Data Visualization"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "top"
+    ]
+  },
+  {
+    "filePath": "Sport/NHL API teams.py",
+    "fileType": "py",
+    "title": "NHL API teams",
+    "primaryTopic": "ETL and Data Pipelines",
+    "topics": [
+      "Python",
+      "ETL and Data Pipelines",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/Pull the Game details working xy.py",
+    "fileType": "py",
+    "title": "Pull the Game details working xy",
+    "primaryTopic": "API Integration",
+    "topics": [
+      "Python",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/RdJSON.py",
+    "fileType": "py",
+    "title": "RdJSON",
+    "primaryTopic": "ETL and Data Pipelines",
+    "topics": [
+      "Python",
+      "ETL and Data Pipelines",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/Scrape.ipynb",
+    "fileType": "ipynb",
+    "title": "Scrape",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "API Integration",
+      "Web Scraping"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Sport/scrapebetwndates.py",
+    "fileType": "py",
+    "title": "scrapebetwndates",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "ETL and Data Pipelines",
+      "API Integration",
+      "Web Scraping"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "scrape_nhl_data_for_date_range"
+    ]
+  },
+  {
+    "filePath": "Sport/WithPLR.py",
+    "fileType": "py",
+    "title": "WithPLR",
+    "primaryTopic": "API Integration",
+    "topics": [
+      "Python",
+      "API Integration"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Unique User ID.py",
+    "fileType": "py",
+    "title": "Unique User ID",
+    "primaryTopic": "Pandas",
+    "topics": [
+      "Python",
+      "Pandas",
+      "Statistical Analysis"
+    ],
+    "functionCount": 0,
+    "functions": []
+  },
+  {
+    "filePath": "Weighted_Time_Series_Forecast.py",
+    "fileType": "py",
+    "title": "Weighted Time Series Forecast",
+    "primaryTopic": "NumPy",
+    "topics": [
+      "Python",
+      "NumPy",
+      "Statistical Analysis"
+    ],
+    "functionCount": 1,
+    "functions": [
+      "forecast_values"
+    ]
+  }
+];
 
 const state = {
   search: "",
@@ -287,6 +719,10 @@ async function loadFeedPayload() {
     return window.CODE_TECHNIQUES_FEED;
   }
 
+  if (Array.isArray(EMBEDDED_FEED) && EMBEDDED_FEED.length > 0) {
+    return EMBEDDED_FEED;
+  }
+
   const candidateUrls = [
     "./code-techniques-feed.json?v=20260315a",
     "./code-techniques-feed.json"
@@ -303,7 +739,7 @@ async function loadFeedPayload() {
     }
   }
 
-  throw new Error("Unable to load feed from embedded JS or JSON file.");
+  throw new Error("Unable to load feed from embedded JS, window feed, or JSON file.");
 }
 
 async function init() {
@@ -324,3 +760,4 @@ async function init() {
 }
 
 init();
+
