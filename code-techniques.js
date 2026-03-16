@@ -28,6 +28,54 @@ const BUSINESS_PURPOSE_BY_TOPIC = {
   "SAS": "Connects Python workflows with SAS environments and SAS datasets for enterprise analytics interoperability."
 };
 
+const BUSINESS_TITLE_OVERRIDES = {
+  "Change the correlation.py": "Correlation Matrix Analysis",
+  "Chart values.py": "Customer Behavior Chart Analysis",
+  "ID outliers.py": "Outlier Detection and Quality Audit",
+  "import saspy, os.py": "SAS-Python Environment Bootstrap",
+  "K-Mean Clustering.py": "Customer Segmentation Clustering Model",
+  "Linear regression.py": "Revenue Impact Regression Model",
+  "Mode.py": "Descriptive Statistics Mode Profile",
+  "NumpyExtraCredit03082020 - Part 2.ipynb": "AUROC Performance Evaluation Notebook",
+  "NumpyExtraCredit03082020 - w_roll.ipynb": "Weighted Time Series Forecast Notebook",
+  "Outlier2.py": "Outlier Detection Workflow v2",
+  "PandasProblems_v2.ipynb": "Pandas Data Wrangling Practice Lab",
+  "PandasSeriesDataFrames_v3.ipynb": "Pandas Series and DataFrames Foundations",
+  "read sasfile.py": "SAS Dataset Ingestion Script",
+  "Reading Access.py": "Access Database Extraction Pipeline",
+  "Rocket_3.py": "Forecast Scenario Analysis Prototype",
+  "sascfg_personal.py": "SAS Connection Configuration Profile",
+  "Simple_2A.py": "Rapid Analysis Template",
+  "sklearncode.py": "Classification Model Evaluation Script",
+  "Attendance.ipynb": "Attendance Trend Analysis Notebook",
+  "Dump JSON.py": "API JSON Export Utility",
+  "FinalExamVersion1 - answers -Part 2-checkpoint.ipynb": "End-to-End Data Analysis Assessment Notebook",
+  "GroupByPivotPlotMerge.ipynb": "Grouping, Pivot, and Merge Analytics Notebook",
+  "NHL API teams.py": "NHL Team Reference Data API Pull",
+  "Pull the Game details working xy.py": "NHL Game Event Coordinate Extractor",
+  "RdJSON.py": "JSON Reader and Normalization Utility",
+  "Scrape.ipynb": "Automated Sports Data Scraping Notebook",
+  "scrapebetwndates.py": "Date-Range Web Scraping Pipeline",
+  "WithPLR.py": "Polynomial and Logistic Regression Workflow",
+  "Unique User ID.py": "Unique User Identification Analysis",
+  "Weighted_Time_Series_Forecast.py": "Weighted Time Series Forecast Model"
+};
+
+const NOTE_SIGNAL_RULES = [
+  { pattern: /(correlation|corr)/i, label: "correlation analysis" },
+  { pattern: /(chart|plot|visual)/i, label: "chart generation" },
+  { pattern: /(outlier|z[-_ ]?score|iqr)/i, label: "outlier detection" },
+  { pattern: /(sas|saspy|sascfg|sasfile)/i, label: "SAS integration" },
+  { pattern: /(cluster|k[-_ ]?mean)/i, label: "clustering segmentation" },
+  { pattern: /(regression|auc|classification)/i, label: "regression/model evaluation" },
+  { pattern: /(forecast|time[_ -]?series|moving average)/i, label: "forecasting/time-series modeling" },
+  { pattern: /(api|json|nhl|requests|endpoint)/i, label: "API/JSON integration" },
+  { pattern: /(scrape|beautifulsoup|selenium)/i, label: "web scraping" },
+  { pattern: /(sql|sqlite|odbc|access|query)/i, label: "SQL/database connectivity" },
+  { pattern: /(pivot|merge|groupby|group by|reshape)/i, label: "aggregation and reshaping" },
+  { pattern: /(attendance|user id|user)/i, label: "entity-level tracking" }
+];
+
 const GITHUB_USERNAME = "HBRose-BIDA";
 const GITHUB_REPO = "Code";
 const GITHUB_BLOB_BASE = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO}/blob/main/`;
@@ -513,6 +561,21 @@ function mapToRepoPath(pathValue) {
   return normalized;
 }
 
+function businessTitleForPath(repoPath, fallbackTitle) {
+  const fileName = String(repoPath || "").split("/").pop() || "";
+  const overridden = BUSINESS_TITLE_OVERRIDES[fileName] || BUSINESS_TITLE_OVERRIDES[repoPath];
+  if (overridden) {
+    return overridden;
+  }
+
+  const fallback = String(fallbackTitle || fileName || "Code Artifact").trim();
+  if (fallback.length === 0) {
+    return "Code Artifact";
+  }
+
+  return fallback;
+}
+
 function normalizeRecord(record) {
   const topics = Array.isArray(record.topics)
     ? record.topics.filter((topic) => TOPIC_ORDER.includes(topic))
@@ -520,22 +583,78 @@ function normalizeRecord(record) {
 
   const fallbackTopics = topics.length > 0 ? topics : ["Python"];
   const functions = Array.isArray(record.functions) ? record.functions : [];
+  const repoPath = mapToRepoPath(record.filePath || "");
 
   return {
-    filePath: mapToRepoPath(record.filePath || ""),
+    filePath: repoPath,
     fileType: String(record.fileType || "file").toLowerCase(),
-    title: String(record.title || record.filePath || "Code File"),
+    title: businessTitleForPath(repoPath, record.title || record.filePath || "Code Artifact"),
     primaryTopic: TOPIC_ORDER.includes(record.primaryTopic) ? record.primaryTopic : fallbackTopics[0],
     topics: fallbackTopics,
     functionCount: Number(record.functionCount) || 0,
     functions,
-    openUrl: githubFileUrl(mapToRepoPath(record.filePath || ""))
+    openUrl: githubFileUrl(repoPath)
   };
 }
 
 function businessPurpose(record) {
   return BUSINESS_PURPOSE_BY_TOPIC[record.primaryTopic]
     || "Supports analytics implementation through code-based data processing and evaluation.";
+}
+
+function inferArtifactSignals(record) {
+  const evidenceText = [
+    record.filePath,
+    record.title,
+    record.primaryTopic,
+    record.topics.join(" "),
+    record.functions.join(" ")
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  const signals = [];
+  NOTE_SIGNAL_RULES.forEach((rule) => {
+    if (rule.pattern.test(evidenceText) && !signals.includes(rule.label)) {
+      signals.push(rule.label);
+    }
+  });
+
+  return signals;
+}
+
+function outputArtifactsFromSignals(signals) {
+  const outputs = [];
+
+  if (signals.includes("API/JSON integration")) {
+    outputs.push("JSON/API payload extracts");
+  }
+  if (signals.includes("forecasting/time-series modeling")) {
+    outputs.push("forecast values and trend projections");
+  }
+  if (signals.includes("regression/model evaluation")) {
+    outputs.push("model fit metrics and scored predictions");
+  }
+  if (signals.includes("clustering segmentation")) {
+    outputs.push("cluster assignments and segment labels");
+  }
+  if (signals.includes("outlier detection")) {
+    outputs.push("flagged anomaly records");
+  }
+  if (signals.includes("chart generation")) {
+    outputs.push("plots and charts for visual review");
+  }
+  if (signals.includes("SQL/database connectivity")) {
+    outputs.push("query result sets from relational sources");
+  }
+  if (signals.includes("aggregation and reshaping")) {
+    outputs.push("pivoted and merged summary tables");
+  }
+  if (signals.includes("SAS integration")) {
+    outputs.push("SAS dataset access and transfer artifacts");
+  }
+
+  return outputs;
 }
 
 function skillList(record) {
@@ -546,18 +665,25 @@ function skillList(record) {
 
 function detailedNotes(record) {
   const notes = [];
+  const signals = inferArtifactSignals(record);
 
-  notes.push(`Primary topic: ${record.primaryTopic}.`);
-
-  if (record.functionCount > 0) {
-    notes.push(`Functions identified: ${record.functionCount}.`);
-  } else {
-    notes.push("No explicit function definitions detected; this file may be script- or notebook-driven.");
+  if (signals.length > 0) {
+    notes.push(`Artifact signals: ${signals.join(", ")}.`);
   }
 
-  if (record.functions.length > 0) {
-    notes.push(`Function examples: ${record.functions.slice(0, 6).join(", ")}.`);
+  if (record.functionCount > 0 && record.functions.length > 0) {
+    const preview = record.functions.slice(0, 5).map((name) => `${name}()`).join(", ");
+    const hiddenCount = Math.max(record.functionCount - Math.min(record.functions.length, 5), 0);
+    const suffix = hiddenCount > 0 ? ` (+${hiddenCount} more)` : "";
+    notes.push(`Named functions: ${preview}${suffix}.`);
   }
+
+  const outputArtifacts = outputArtifactsFromSignals(signals);
+  if (outputArtifacts.length > 0) {
+    notes.push(`Output artifacts: ${outputArtifacts.join(", ")}.`);
+  }
+
+  notes.push(`Source format: ${record.fileType.toUpperCase()}.`);
 
   return notes.join(" ");
 }
