@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Techniques Library | Function Explorer</title>
+    <link rel="stylesheet" href="./code-techniques.css?v=20260315a" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Code / Function Techniques</p>
+      <h1>Code Techniques Library</h1>
+      <p class="subhead">
+        This page scans the full Code directory (including Sport) and highlights function-level techniques
+        across Python scripts and notebooks.
+      </p>
+      <p class="hero-note">Use topic chips, search, and file filters to explore implementation patterns quickly.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="File, function, topic, or keyword" autocomplete="off" />
+        </label>
+
+        <label>
+          <span>File Type</span>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="py">PY</option>
+            <option value="ipynb">IPYNB</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Primary Topic</span>
+          <select id="topicFilter">
+            <option value="all">All Topics</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sort</span>
+          <select id="sortOrder">
+            <option value="title-asc">Project Title A to Z</option>
+            <option value="title-desc">Project Title Z to A</option>
+            <option value="functions-desc">Functions High to Low</option>
+            <option value="functions-asc">Functions Low to High</option>
+          </select>
+        </label>
+
+        <div class="stats">
+          <span id="shownCount">0 shown</span>
+          <span id="totalCount">0 total</span>
+        </div>
+      </section>
+
+      <section class="panel topics" aria-label="Topic quick filters">
+        <h2>Technique Topics</h2>
+        <div id="topicChips" class="topic-chips" role="group" aria-label="Technique topics"></div>
+      </section>
+
+      <section class="panel table-wrap" aria-label="Code technique table">
+        <table>
+          <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Business Purpose</th>
+              <th>Skills Demonstrated</th>
+              <th>Detailed Notes</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Build metadata">
+      <p>Feed source: code-techniques-feed.json generated from all Python and notebook files under Code.</p>
+    </footer>
+
+    <script src="./code-techniques-feed.js?v=20260315a"></script>
+    <script src="./code-techniques.js?v=20260315a" defer></script>
+  </body>
+</html>
