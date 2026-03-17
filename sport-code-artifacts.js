@@ -142,17 +142,57 @@ function openUrl(fileName) {
   return GITHUB_BLOB_BASE + encodeURIComponent(fileName);
 }
 
+function availableTopics() {
+  const present = new Set();
+
+  ARTIFACTS.forEach((row) => {
+    if (TOPIC_ORDER.includes(row.primaryTopic)) {
+      present.add(row.primaryTopic);
+    }
+
+    row.skills.forEach((skill) => {
+      if (TOPIC_ORDER.includes(skill)) {
+        present.add(skill);
+      }
+    });
+  });
+
+  return TOPIC_ORDER.filter((topic) => present.has(topic));
+}
+
 function populateTopicFilter() {
-  TOPIC_ORDER.forEach((topic) => {
+  const topicList = availableTopics();
+
+  ui.topicFilter.innerHTML = "";
+
+  const allOption = document.createElement("option");
+  allOption.value = "all";
+  allOption.textContent = "All Topics";
+  ui.topicFilter.appendChild(allOption);
+
+  topicList.forEach((topic) => {
     const option = document.createElement("option");
     option.value = topic;
     option.textContent = topic;
     ui.topicFilter.appendChild(option);
   });
+
+  if (state.topic !== "all" && !topicList.includes(state.topic)) {
+    state.topic = "all";
+  }
+
+  ui.topicFilter.value = state.topic;
 }
 
 function buildTopicChips() {
-  const chipTopics = ["All Topics", ...TOPIC_ORDER];
+  const topicList = availableTopics();
+
+  if (state.topic !== "all" && !topicList.includes(state.topic)) {
+    state.topic = "all";
+    ui.topicFilter.value = "all";
+  }
+
+  const chipTopics = ["All Topics", ...topicList];
 
   ui.topicChips.innerHTML = chipTopics
     .map((topic) => {
@@ -240,6 +280,7 @@ function render() {
     ui.tableBody.innerHTML = sorted.map((row) => rowHtml(row)).join("");
   }
 
+  populateTopicFilter();
   buildTopicChips();
 }
 
