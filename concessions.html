@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concessions Project | Project Explorer</title>
+    <link rel="stylesheet" href="./concessions.css?v=20260317a" />
+  </head>
+  <body>
+    <div class="background-shape" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Sport Analytics / Project</p>
+      <h1>Concessions Strategy Project</h1>
+      <p class="subhead">
+        This project brings together concessions revenue analysis, operational planning, optimization work,
+        and executive recommendations around 2011 to 2013 sales performance and fan-experience decisions.
+      </p>
+      <p class="hero-note">
+        Start here:
+        <a
+          class="inline-link"
+          href="https://public.tableau.com/views/Concessions11-13/Story1?:embed=y&:showVizHome=no"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Concessions Tableau Story</a
+        >
+      </p>
+      <p class="hero-note">Then search, filter, and open each supporting artifact in browser view mode.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Artifact purpose or method" autocomplete="off" />
+        </label>
+
+        <label>
+          <span>File Type</span>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="docx">DOCX</option>
+            <option value="pptx">PPTX</option>
+            <option value="xlsx">XLSX</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Project Focus</span>
+          <select id="focusFilter">
+            <option value="all">All focus areas</option>
+            <option value="Strategy and Recommendation">Strategy and Recommendation</option>
+            <option value="Data and Dashboard Design">Data and Dashboard Design</option>
+            <option value="Forecasting and Optimization">Forecasting and Optimization</option>
+            <option value="Communication and Supporting Material">Communication and Supporting Material</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sort</span>
+          <select id="sortOrder">
+            <option value="asc">Number: Low to High</option>
+            <option value="desc">Number: High to Low</option>
+          </select>
+        </label>
+
+        <div class="stats" aria-label="Artifact counts">
+          <span id="shownCount">0 shown</span>
+          <span id="totalCount">0 total</span>
+        </div>
+      </section>
+
+      <section class="panel ancillary" aria-label="Ancillary projects">
+        <h2>Ancillary Projects</h2>
+        <a href="https://hbrose-bida.github.io/Code/project-wild.html" target="_blank" rel="noopener noreferrer">NHL Wild Project Explorer</a>
+        <a href="https://hbrose-bida.github.io/Code/project-trade.html" target="_blank" rel="noopener noreferrer">NHL Trade Decision Project</a>
+        <a href="https://hbrose-bida.github.io/Code/salary-vs-pnts.html" target="_blank" rel="noopener noreferrer">NHL Salary vs Wins</a>
+        <a href="https://hbrose-bida.github.io/Code/database-artifacts.html" target="_blank" rel="noopener noreferrer">Database Artifacts</a>
+        <a href="https://hbrose-bida.github.io/Code/statistics-artifacts.html" target="_blank" rel="noopener noreferrer">Statistics Techniques Library</a>
+        <a href="https://hbrose-bida.github.io/Code/tableau-artifacts.html" target="_blank" rel="noopener noreferrer">Tableau Artifacts</a>
+        <a href="https://hbrose-bida.github.io/Code/creative-thinking-artifacts.html" target="_blank" rel="noopener noreferrer">Creative Thinking Library</a>
+      </section>
+
+      <section class="panel quick-filters" aria-label="Quick filters">
+        <h2>Quick Views</h2>
+        <div class="chip-row" role="group" aria-label="Suggested searches">
+          <button type="button" class="chip" data-query="outsourcing|vendor|fan experience|rfp">Outsourcing and fan experience</button>
+          <button type="button" class="chip" data-query="sales|dashboard|category|temperature|monthly">Sales and dashboard structure</button>
+          <button type="button" class="chip" data-query="forecast|projection|growth|solver|optimization">Forecasting and optimization</button>
+          <button type="button" class="chip" data-query="storytelling|presentation|audience|executive summary">Communication and storytelling</button>
+          <button type="button" class="chip clear-chip" data-query="">Show all artifacts</button>
+        </div>
+      </section>
+
+      <section class="panel table-wrap" aria-label="Artifact table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Artifact Purpose</th>
+              <th>Methods and Techniques</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+
+      <section class="panel viz-panel" aria-label="Tableau visualization">
+        <h2>Live Visualization</h2>
+        <p class="viz-desc">
+          Tableau Public story for the concessions analysis. Use the story points and toolbar to inspect year,
+          month, and category-level patterns alongside the artifact table.
+        </p>
+        <div class="viz-frame-wrap">
+          <iframe
+            class="viz-frame"
+            src="https://public.tableau.com/views/Concessions11-13/Story1?:embed=y&:showVizHome=no&:toolbar=yes"
+            allowfullscreen
+            title="Concessions Story - Tableau Public"
+          ></iframe>
+        </div>
+        <p class="viz-hint">
+          <a
+            class="viz-external-link"
+            href="https://public.tableau.com/views/Concessions11-13/Story1?:embed=y&:showVizHome=no"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open full view on Tableau Public</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Build metadata">
+      <p>Last updated: 2026-03-17 | Build: v20260317a</p>
+    </footer>
+
+    <script src="./concessions.js?v=20260317a" defer></script>
+  </body>
+</html>
