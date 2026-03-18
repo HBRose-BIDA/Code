@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workspace Skill Hub | Project Explorer</title>
+    <link rel="stylesheet" href="./workspace-skill-hub.css?v=20260317a" />
+  </head>
+  <body>
+    <div class="background-grid" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Workspace-wide Explorer</p>
+      <h1>Skill and Artifact Hub</h1>
+      <p class="subhead">
+        This page scans all workspace directories and subdirectories, then maps files to your skill taxonomy.
+        Files can belong to multiple categories and be filtered with tag chips.
+      </p>
+      <p class="hero-note">Code files open in GitHub. Non-code artifacts open from Azure, with Office files in browser view mode.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Purpose, methods, or tag" autocomplete="off" />
+        </label>
+
+        <label>
+          <span>File Type</span>
+          <select id="extFilter">
+            <option value="all">All types</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sort</span>
+          <select id="sortOrder">
+            <option value="path-asc">Path A to Z</option>
+            <option value="path-desc">Path Z to A</option>
+            <option value="name-asc">Name A to Z</option>
+            <option value="name-desc">Name Z to A</option>
+          </select>
+        </label>
+
+        <div class="control-actions" aria-label="Filter actions">
+          <button id="clearFiltersBtn" type="button">Clear Filters</button>
+        </div>
+
+        <div class="stats" aria-label="Results summary">
+          <span id="shownCount">0 shown</span>
+          <span id="totalCount">0 total</span>
+          <span id="selectedTagCount">0 tags selected</span>
+        </div>
+      </section>
+
+      <section class="panel chips-panel" aria-label="Skill chips">
+        <h2>Skill Chips</h2>
+        <p class="chip-note">Choose one chip to filter. Choose another to switch, or click again to clear.</p>
+        <div id="chipBoard" class="chip-board"></div>
+      </section>
+
+      <section class="panel table-wrap" aria-label="File inventory">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Artifact Purpose</th>
+              <th>Methods and Techniques</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+
+      <section class="panel pager" aria-label="Pagination">
+        <button id="prevPageBtn" type="button">Previous</button>
+        <span id="pageLabel">Page 1 of 1</span>
+        <button id="nextPageBtn" type="button">Next</button>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Build metadata">
+      <p>Build: v20260317a | Source: full recursive workspace inventory</p>
+    </footer>
+
+    <script src="./workspace-skill-hub-data.js?v=20260317b" defer></script>
+    <script src="./workspace-skill-hub.js?v=20260317c" defer></script>
+  </body>
+</html>
