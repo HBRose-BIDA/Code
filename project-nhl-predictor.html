@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NHL Win Predictor | Pipeline Explorer</title>
+    <link rel="stylesheet" href="./project-nhl-predictor.css?v=20260413a" />
+  </head>
+  <body>
+    <div class="background-shape" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Sport Analytics / Predictive Modeling</p>
+      <h1>NHL Win Predictor</h1>
+      <p class="subhead">
+        A four-script XGBoost pipeline that extracts historical NHL team
+        performance, trains a win-probability model, fetches the daily game
+        schedule, and scores each matchup with a predicted winner and confidence.
+      </p>
+      <p class="hero-note">
+        Docs:
+        <a
+          class="view-link"
+          href="https://github.com/HBRose-BIDA/Code/blob/main/RUNBOOK.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          >RUNBOOK</a
+        >
+        <a
+          class="view-link"
+          href="https://github.com/HBRose-BIDA/Code/blob/main/CONFIG_DOCUMENTATION.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Config Docs</a
+        >
+      </p>
+    </header>
+
+    <main class="layout">
+      <!-- Pipeline visual -->
+      <section class="panel pipeline-section" aria-label="Pipeline flow">
+        <h2 class="section-heading">Pipeline Flow</h2>
+        <div class="pipeline">
+          <div class="batch-group">
+            <span class="batch-label">Batch 1 &mdash; Training <span class="batch-note">(daily or weekly)</span></span>
+            <div class="pipeline-row">
+              <div class="step-card">
+                <span class="step-num">1</span>
+                <p class="step-script">fetch_training_data.py</p>
+                <p class="step-desc">Pulls historical game results and standings from the NHL API</p>
+                <span class="output-badge">&rarr; master_training_data.json</span>
+              </div>
+              <div class="step-arrow">&rarr;</div>
+              <div class="step-card">
+                <span class="step-num">2</span>
+                <p class="step-script">train_model.py</p>
+                <p class="step-desc">Trains an XGBoost classifier on team performance features</p>
+                <span class="output-badge">&rarr; nhl_win_predictor.json</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="batch-connector">&darr; model available</div>
+
+          <div class="batch-group">
+            <span class="batch-label">Batch 2 &mdash; Daily Predictions <span class="batch-note">(before puck drop)</span></span>
+            <div class="pipeline-row">
+              <div class="step-card">
+                <span class="step-num">3</span>
+                <p class="step-script">fetch_schedule.py</p>
+                <p class="step-desc">Pulls the scheduled games for the target date</p>
+                <span class="output-badge">&rarr; today_games.json</span>
+              </div>
+              <div class="step-arrow">&rarr;</div>
+              <div class="step-card">
+                <span class="step-num">4</span>
+                <p class="step-script">generate_predictions.py</p>
+                <p class="step-desc">Scores each game with a predicted winner and confidence</p>
+                <span class="output-badge">&rarr; model_predictions_log.csv</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <section class="panel controls" aria-label="Filters">
+        <label>
+          <span>Search</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="File name or purpose"
+            autocomplete="off"
+          />
+        </label>
+        <label>
+          <span>Batch</span>
+          <select id="batchFilter">
+            <option value="all">All</option>
+            <option value="Training Batch">Training Batch</option>
+            <option value="Prediction Batch">Prediction Batch</option>
+            <option value="Data File">Data File</option>
+            <option value="Documentation">Documentation</option>
+          </select>
+        </label>
+        <label>
+          <span>File Type</span>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="py">Python</option>
+            <option value="json">JSON</option>
+            <option value="csv">CSV</option>
+            <option value="md">Markdown</option>
+            <option value="xlsx">Excel</option>
+          </select>
+        </label>
+        <label>
+          <span>Sort</span>
+          <select id="sortOrder">
+            <option value="asc">Step: Low &rarr; High</option>
+            <option value="desc">Step: High &rarr; Low</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- Table -->
+      <section class="panel table-wrap" aria-label="File table">
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>File</th>
+              <th>Role / Purpose</th>
+              <th>Batch</th>
+              <th>Open</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="panel empty" id="emptyState" hidden>
+        No files match the current filters.
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Build metadata">
+      <p>Last updated: 2026-04-13 | Build: v20260413a</p>
+    </footer>
+
+    <script src="./project-nhl-predictor.js?v=20260413a" defer></script>
+  </body>
+</html>
